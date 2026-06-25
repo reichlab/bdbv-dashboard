@@ -50,12 +50,12 @@ jobs:
 
           git fetch origin
           if git ls-remote --exit-code --heads origin plot/data; then
-            git worktree add ../plot-data plot/data
+            git worktree add ../plot-data origin/plot/data
           else
-            git worktree add --orphan ../plot-data plot/data
+            git worktree add --orphan -b plot/data ../plot-data
           fi
 
           cp forecast-plot.png ../plot-data/forecast-plot.png
           git -C ../plot-data add forecast-plot.png
           git -C ../plot-data commit -m "Update forecast plot"
-          git -C ../plot-data push origin plot/data
+          git -C ../plot-data push origin HEAD:plot/data
