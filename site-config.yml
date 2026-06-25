@@ -4,4 +4,5 @@ title: "BDBV Modeling Hub Dashboard Website"
 pages:
   - "about.md"
   - "data.qmd"
+  - "custom-plot.qmd"
 

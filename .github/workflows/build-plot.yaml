@@ -1,0 +1,59 @@
+name: "Build Forecast Plot"
+on:
+  schedule:
+    - cron: "33 17 * * 4"  # every Thursday at 5:33PM UTC
+  push:
+    branches: [main]
+    paths:
+      - scripts/plot-forecasts.R
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Push plot to branch (uncheck for a dry run)"
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-plot:
+    name: "Build forecast plot"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 4.4.1
+          install-r: true
+
+      - name: Install R packages
+        run: |
+          Rscript -e "install.packages(c('dplyr', 'tidyr', 'ggplot2', 'ggdist', 'mgcv', 'arrow', 'remotes'))"
+          Rscript -e "remotes::install_github(c('hubverse-org/hubUtils', 'hubverse-org/hubData'))"
+
+      - name: Generate forecast plot
+        run: Rscript scripts/plot-forecasts.R
+
+      - name: Push to plot/data branch
+        if: inputs.publish || github.event_name == 'schedule' || github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin
+          if git ls-remote --exit-code --heads origin plot/data; then
+            git worktree add ../plot-data plot/data
+          else
+            git worktree add --orphan ../plot-data plot/data
+          fi
+
+          cp forecast-plot.png ../plot-data/forecast-plot.png
+          git -C ../plot-data add forecast-plot.png
+          git -C ../plot-data commit -m "Update forecast plot"
+          git -C ../plot-data push origin plot/data
