@@ -5,6 +5,5 @@ pages:
   - href: "custom-plot.qmd"
     text: "Forecasts"
     icon: graph-up
-  - "about.md"
   - "data.qmd"
 
