@@ -31,6 +31,8 @@ jobs:
           install-r: true
 
       - name: Install R packages
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           Rscript -e "install.packages(c('dplyr', 'tidyr', 'ggplot2', 'ggdist', 'mgcv', 'arrow', 'remotes'))"
           Rscript -e "remotes::install_github(c('hubverse-org/hubUtils', 'hubverse-org/hubData'))"
