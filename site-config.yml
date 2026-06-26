@@ -1,6 +1,10 @@
 ---
 hub: "InsightNet-US/BDBV-Modeling-Hub/"
 title: "BDBV Modeling Hub"
+html:
+  theme:
+    - yeti
+    - custom.scss
 pages:
   - "data.qmd"
 
