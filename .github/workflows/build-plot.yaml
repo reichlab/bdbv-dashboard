@@ -59,3 +59,9 @@ jobs:
           git -C ../plot-data add forecast-plot.png
           git -C ../plot-data commit -m "Update forecast plot"
           git -C ../plot-data push origin HEAD:plot/data
+
+      - name: Trigger site rebuild
+        if: inputs.publish || github.event_name == 'schedule' || github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run build-site.yaml
