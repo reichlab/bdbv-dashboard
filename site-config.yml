@@ -1,9 +1,10 @@
 ---
 hub: "InsightNet-US/BDBV-Modeling-Hub/"
-title: "BDBV Modeling Hub Dashboard Website"
+title: "BDBV Modeling Hub"
+html:
+  theme:
+    - yeti
+    - custom.scss
 pages:
-  - href: "custom-plot.qmd"
-    text: "Forecasts"
-    icon: graph-up
   - "data.qmd"
 

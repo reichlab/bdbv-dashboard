@@ -79,12 +79,6 @@ p <- ggplot() +
         fill = "grey50",
         alpha = 0.2
     ) +
-    geom_line(
-        data = spline_band,
-        aes(x = reference_date, y = fit),
-        color = "grey20",
-        linewidth = 0.8
-    ) +
     ggdist::geom_pointinterval(
         data = point_intervals,
         aes(
