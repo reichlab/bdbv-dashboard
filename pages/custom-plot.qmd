@@ -1,7 +1,0 @@
----
-title: "Forecasts"
----
-
-Forecast plot showing cumulative symptomatic Ebola infections in DRC. Individual model quantile intervals (50%, 80%, 95%) are shown alongside a smoothed ensemble band. Updated weekly every Thursday.
-
-![Forecast plot showing cumulative symptomatic Ebola infections with per-model quantile intervals and a smoothed spline ensemble band.](https://raw.githubusercontent.com/reichlab/bdbv-dashboard/refs/heads/plot/data/forecast-plot.png){width=100%}

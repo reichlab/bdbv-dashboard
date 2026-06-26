@@ -2,8 +2,5 @@
 hub: "InsightNet-US/BDBV-Modeling-Hub/"
 title: "BDBV Modeling Hub"
 pages:
-  - href: "custom-plot.qmd"
-    text: "Forecasts"
-    icon: graph-up
   - "data.qmd"
 

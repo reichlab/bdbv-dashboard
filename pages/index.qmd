@@ -4,8 +4,10 @@ title: "Introduction"
 
 This is a dashboard for the [BDBV Modeling Hub](https://github.com/InsightNet-US/BDBV-Modeling-Hub) built to collect outbreak size estimates of the Bundibugyo (Ebola) virus outbreak in 2026.
 
-::: {style='display:flex; align-items: center; justify-content: center'}
+![Predictions of cumulative symptomatic Ebola infections in DRC. Individual model quantile intervals (50%, 80%, 95%) are shown alongside a smoothed ensemble band. Updated weekly every Thursday.](https://raw.githubusercontent.com/reichlab/bdbv-dashboard/refs/heads/plot/data/forecast-plot.png){width=100%}
 
-[View The Latest Forecasts](custom-plot.html){.btn .btn-primary role="button"}
+::::{.callout-note}
 
-:::
+Changes in predicted outbreak size (particularly decreases) may be the result of different information available at different time points, not changes in actual cumulative infections.
+
+::::
