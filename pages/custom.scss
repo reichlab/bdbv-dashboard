@@ -2,3 +2,16 @@
 $primary: #63d297;
 $navbar-bg: #63d297;
 $link-color: #63d297;
+
+/*-- scss:rules --*/
+.navbar {
+  background-color: #63d297 !important;
+}
+
+main a, main a:visited {
+  color: #63d297;
+}
+
+main a:hover {
+  color: #4db87d;
+}
