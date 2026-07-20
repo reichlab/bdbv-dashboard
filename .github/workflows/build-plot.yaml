@@ -1,7 +1,7 @@
 name: "Build Forecast Plot"
 on:
-  schedule:
-    - cron: "33 17 * * 4"  # every Thursday at 5:33PM UTC
+  schedule: # after new renewal model predictions (made tues, fri, sun) are merged in
+    - cron: "33 17 * * 1,2,5"  # every Monday, Tuesday, Friday at 5:33PM UTC
   push:
     branches: [main]
     paths:
