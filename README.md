@@ -1,4 +1,6 @@
-# Template Hubverse Dashboard Repository
+# BDBV Dashboard Repository
+
+Dashboard for the [BDBV Modeling Hub](https://github.com/InsightNet-US/BDBV-Modeling-Hub)'s Round 1 predictions of county-level cumulative outbreak size estimates. Superseded by https://insightnet-us.github.io/BDBV-Modeling-Hub-Dashboard/
 
 ## Quickstart
 
